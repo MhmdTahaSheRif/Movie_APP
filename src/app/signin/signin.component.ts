@@ -39,8 +39,9 @@ export class SigninComponent {
       this.authService.signIn(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         response => {
           console.log('API Response:', response);
-          if (response && response.token) {
-            localStorage.setItem('token', response.token);
+  
+          if (response && response.response && response.response.token) {
+            localStorage.setItem('token', response.response.token);
             console.log('Login successful');
             this.router.navigate(['/search']); 
           } else {
@@ -55,4 +56,5 @@ export class SigninComponent {
       );
     }
   }
+  
 }
