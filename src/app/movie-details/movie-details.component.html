@@ -1,0 +1,9 @@
+<h2 mat-dialog-title class="dialog-title" style="margin: auto;">{{ movie.Title }}</h2>
+<mat-dialog-content class="movie-dialog-content">
+  <img [src]="movie.Poster" alt="{{ movie.Title }}" class="movie-poster" />
+  <p><strong>🗓 Year:</strong> {{ movie.Year }}</p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()" class="close-btn">❌ Close</button>
+</mat-dialog-actions>

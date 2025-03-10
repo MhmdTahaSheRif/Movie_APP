@@ -1,0 +1,31 @@
+<div class="search-container">
+  <input #searchBox type="text" placeholder="Enter movie title..." class="search-box" />
+  <button (click)="search(searchBox.value)" class="search-btn">🔍 Search</button>
+</div>
+
+<div *ngIf="movies.length > 0" class="results-container">
+  <h2>🎬 Search Results:</h2>
+  <div class="movies-grid">
+    <div *ngFor="let movie of paginatedMovies" class="movie-card">
+      <h3 style="color: white;">{{ movie.Title }} ({{ movie.Year }})</h3>
+      <img [src]="movie.Poster" alt="{{ movie.Title }}" />
+
+      <div class="buttons">
+        <button (click)="openMovieDetails(movie)" class="details-btn">Details</button>
+
+        <button *ngIf="!isMovieAdded(movie.imdbID)" (click)="addMovie(movie.imdbID)" class="add-btn">
+          ➕ Add
+        </button>
+        <button *ngIf="isMovieAdded(movie.imdbID)" (click)="deleteMovie(movie.imdbID)" class="delete-btn">
+          ❌ Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">⬅️ Previous</button>
+    <span>Page {{ currentPage }} / {{ Math.ceil(movies.length / moviesPerPage) }}</span>
+    <button (click)="nextPage()" [disabled]="(currentPage * moviesPerPage) >= movies.length">Next ➡️</button>
+  </div>
+</div>
