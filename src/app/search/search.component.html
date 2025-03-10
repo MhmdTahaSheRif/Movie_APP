@@ -2,6 +2,7 @@
   <input #searchBox type="text" placeholder="Enter movie title..." class="search-box" />
   <button (click)="search(searchBox.value)" class="search-btn">🔍 Search</button>
 </div>
+<button (click)="signOut()" class="signout-btn">🚪 Sign Out</button>
 
 <div *ngIf="movies.length > 0" class="results-container">
   <h2>🎬 Search Results:</h2>

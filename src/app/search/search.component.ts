@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
+import { Router } from '@angular/router'; // ✅ Import Router from Angular
 
 @Component({
   selector: 'app-search',
@@ -19,16 +20,12 @@ export class SearchComponent {
   moviesPerPage: number = 18;
   Math = Math;
 
-  constructor(private movieService: MovieService, public dialog: MatDialog) {}
+  constructor(private movieService: MovieService, public dialog: MatDialog, private router: Router) {} // ✅ Inject Router
 
   search(title: string) {
     this.currentPage = 1;
     this.movieService.searchMovies(title).subscribe((movies) => {
-      if (movies.length > 0) {
-        this.movies = movies;
-      } else {
-        this.movies = [];
-      }
+      this.movies = movies.length > 0 ? movies : [];
     });
   }
 
@@ -57,26 +54,35 @@ export class SearchComponent {
   }
 
   addMovie(imdbId: string) {
-    this.movieService.addMovie(imdbId).subscribe(response => {
-      alert(response.response); 
-      this.addedMovies.add(imdbId); 
-    }, error => {
-      alert("Failed to add movie!");
-    });
+    this.movieService.addMovie(imdbId).subscribe(
+      response => {
+        alert(response.response);
+        this.addedMovies.add(imdbId);
+      },
+      error => {
+        alert("Failed to add movie!");
+      }
+    );
   }
 
   deleteMovie(movieId: string) {
-    this.movieService.deleteMovie(movieId).subscribe(response => {
-      alert(response.response); 
-      this.addedMovies.delete(movieId); 
-    }, error => {
-      alert("Failed to delete movie!");
-    });
+    this.movieService.deleteMovie(movieId).subscribe(
+      response => {
+        alert(response.response);
+        this.addedMovies.delete(movieId);
+      },
+      error => {
+        alert("Failed to delete movie!");
+      }
+    );
+  }
+
+  signOut() {
+    localStorage.clear(); // ✅ Clear all stored data
+    this.router.navigate(['/signin']); // ✅ Redirect to sign-in page
   }
 
   isMovieAdded(movieId: string): boolean {
     return this.addedMovies.has(movieId);
   }
 }
-export { MovieService };
-

@@ -8,12 +8,12 @@ import { FilmSearchComponent } from './film-search/film-search.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: 'signin', component: SigninComponent },
-  { path: '', component: SigninComponent },
+  { path: 'signin', component: SigninComponent }, 
   { path: 'signup', component: SignupComponent },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] }, 
-  { path: 'movie-details', component: MovieDetailsComponent, canActivate: [AuthGuard]},
-  { path: 'filmsearch', component: FilmSearchComponent }
+  { path: 'movie-details', component: MovieDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'filmsearch', component: FilmSearchComponent },
+  { path: '**', redirectTo: '/signin', pathMatch: 'full' } 
 ];
 
 @NgModule({

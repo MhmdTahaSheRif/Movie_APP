@@ -46,7 +46,14 @@ export class SignupComponent {
         response => {
           console.log('Signup successful:', response);
           this.successMessage = 'Signup successful! Redirecting...';
-          setTimeout(() => this.router.navigate(['/signin']), 2000); 
+          
+          console.log('Router object:', this.router); 
+          
+          if (this.router) {
+            setTimeout(() => this.router.navigate(['/signin']), 2000);
+          } else {
+            console.error('Router is undefined!');
+          }
         },
         error => {
           console.error('Signup failed:', error);
@@ -55,4 +62,5 @@ export class SignupComponent {
       );
     }
   }
+  
 }

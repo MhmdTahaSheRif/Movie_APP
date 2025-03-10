@@ -178,4 +178,32 @@ body {
   .delete-btn:hover {
     background-color: #c82333;
   }
+  .signout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
   
+  .signout-btn:hover {
+    background-color: #cc0000;
+  }
+  .signout-btn {
+    position: absolute;
+    top: 10px; /* Adjust distance from the top */
+    right: 20px; /* Adjust distance from the right */
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.signout-btn:hover {
+    background-color: #cc0000;
+}
