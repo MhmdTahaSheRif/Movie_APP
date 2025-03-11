@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FilmSearchComponent } from './film-search/film-search.component';
 import { AuthGuard } from './auth.guard';
 
+
 export const routes: Routes = [
   { path: 'signin', component: SigninComponent }, 
   { path: 'signup', component: SignupComponent },
