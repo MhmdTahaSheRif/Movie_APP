@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
+
 @Component({
   selector: 'app-film-search',
   standalone: true,

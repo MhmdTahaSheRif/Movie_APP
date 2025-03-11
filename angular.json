@@ -4,6 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "Movie-App": {
+
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -101,4 +102,5 @@
   "cli": {
     "analytics": "c8ca51cf-13e4-4530-8eeb-fc25d2ef9c06"
   }
+   
 }

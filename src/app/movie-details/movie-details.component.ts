@@ -20,3 +20,4 @@ export class MovieDetailsComponent {
     this.dialogRef.close();
   }
 }
+

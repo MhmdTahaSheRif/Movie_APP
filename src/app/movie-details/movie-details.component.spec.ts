@@ -20,3 +20,4 @@ describe('MovieDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
